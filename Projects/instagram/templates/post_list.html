@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram</title>
+</head>
+<body>
+<header>
+    <h1><a href="/">Instagram Posts</a></h1>
+</header>
+
+{% for post in posts %}
+    <article>
+        {% load static %}
+        <img src="{{ MEDIA_URL }}{{ post.img_post.url }}"/>
+        <p>{{ post.caption|linebreaksbr }}</p>
+        <p>Published: {{ post.created_date.date }}</p>
+    </article>
+{% endfor %}
+</body>
+</html>
